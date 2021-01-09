@@ -32,12 +32,13 @@ function setup() {
 	packageBody = Bodies.circle(width / 2, 200, 5, { restitution: 0.3, isStatic: true });
 	World.add(world, packageBody);
 
-
 	//Create a Ground
 	ground = Bodies.rectangle(width / 2, 650, width, 10, { isStatic: true });
 	World.add(world, ground);
 
-	box1 = new Box(400, 400, 200, 200);
+	box1 = new Box(400, 650, 130, 15);
+	box2 = new Box(330, 595, 15, 100);
+	box3 = new Box(470, 595, 15, 100);
 
 	Engine.run(engine);
 
@@ -46,9 +47,11 @@ function setup() {
 
 function draw() {
 	Engine.update(engine);
+	background(0);
 	rectMode(CENTER);
 	box1.display();
-	background(0);
+	box2.display();
+	box3.display();
 	packageSprite.x = packageBody.position.x
 	packageSprite.y = packageBody.position.y
 	drawSprites();
